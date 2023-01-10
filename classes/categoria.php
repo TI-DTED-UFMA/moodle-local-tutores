@@ -95,7 +95,7 @@ class categoria {
                                    AND contextlevel = :context1 )  ct
                            ON (ct.id = rl.contextid )
                            JOIN {course} co
-                           ON (co.category IN ($path_list)) # = ct.instanceid)
+                           ON (co.category IN ($path_list)) 
                         WHERE t.name IN ('grupo_orientacao', 'grupo_tutoria')
                         AND ti.itemtype = 'relationship'
                         AND co.id = :courseid";
