@@ -229,7 +229,7 @@ class local_tutores_grupo_orientacao extends local_tutores_base_group {
 
         $cohort_estudantes = self::get_relationship_cohort_estudantes($relationship->id);
 
-        $sql = "SELECT DISTINCT u.id, CONCAT(firstname,' ',lastname) AS fullname
+        $sql = "SELECT DISTINCT u.id, CONCAT(firstname,' ',lastname) AS fullname, u.firstname
                   FROM {user} u
                   JOIN {relationship_members} rm
                     ON (rm.userid=u.id)
@@ -663,7 +663,7 @@ class local_tutores_grupos_tutoria extends local_tutores_base_group {
         $relationship = self::get_relationship_tutoria($categoria_turma);
         $cohort_tutores = self::get_relationship_cohort_tutores($relationship->id);
 
-        $sql = "SELECT DISTINCT u.id, CONCAT(firstname,' ',lastname) AS fullname
+        $sql = "SELECT DISTINCT u.id, CONCAT(firstname,' ',lastname) AS fullname, u.firstname
                   FROM {user} u
                   JOIN {relationship_members} rm
                     ON (rm.userid=u.id AND rm.relationshipcohortid=:cohort_id)
